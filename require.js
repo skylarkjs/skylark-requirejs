@@ -1788,8 +1788,9 @@ var requirejs, require, define;
                         var module  = registry[data.id];
                         if (module) {
                             module = module.map && module.map.parentMap;
-                            parents.push(module.id+"("+module.url+")");
-                        }
+                            if (module) {
+                              parents.push(module.id+"("+module.url+")");
+                            }                        }
                     }
                     console.error("scripterror:" + data.id + 
                                   (parents.length ? '", needed by: ' + parents.join(', ') :'"'));
